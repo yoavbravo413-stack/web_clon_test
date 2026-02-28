@@ -7,7 +7,7 @@
     --primary-foreground: #ffffff;
     --secondary: #f6f6f3;
     --accent: #f0f0f0;
-    --radius: 8px;
+    --radius: 0px;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --font-serif: 'Hedvig Letters Serif', Georgia, serif;
 }
@@ -298,7 +298,7 @@ section {
     width: 80%;
     height: 4px;
     background: var(--border);
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 /* Everything you need */
@@ -415,7 +415,7 @@ section {
 .audio-player-mockup {
     background: var(--secondary);
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 0;
     max-width: 600px;
     margin: 48px auto;
     border: 1px solid var(--border);
@@ -425,7 +425,7 @@ section {
     width: 100%;
     max-width: 600px;
     padding: 16px 24px;
-    border-radius: 99px;
+    border-radius: 0;
     border: 1px solid var(--border);
     font-size: 1rem;
     outline: none;
@@ -437,7 +437,7 @@ section {
     margin: 48px auto;
     background: var(--secondary);
     padding: 48px;
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .check-item {
@@ -464,7 +464,7 @@ section {
     background: #ffffff;
     border: 1px solid var(--border);
     padding: 24px;
-    border-radius: 12px;
+    border-radius: 0;
     font-size: 0.875rem;
 }
 
@@ -527,7 +527,7 @@ section {
 .pricing-card {
     border: 1px solid var(--border);
     padding: 48px;
-    border-radius: 12px;
+    border-radius: 0;
     text-align: left;
 }
 
@@ -610,6 +610,49 @@ section {
     color: #a3a3a3;
     /* Muted gray */
     display: inline-block;
+}
+
+/* Animations & Reveal Effects */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific component hover effects */
+.btn,
+.feature-card,
+.stat-box,
+.testimonial-card,
+.pricing-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover,
+.stat-box:hover,
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.pricing-card.highlighted {
+    border-color: var(--primary);
+    transform: scale(1.02);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Media Queries */

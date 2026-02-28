@@ -34,4 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Button clicked:', btn.textContent);
         });
     });
+
+    // Reveal animations on scroll
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // observer.unobserve(entry.target); // Optional: if you want it to stay visible
+            }
+        });
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(el => revealObserver.observe(el));
 });
